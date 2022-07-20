@@ -67,7 +67,20 @@
 
 \section{Graph}
 
-\Algorithm{Min Cut Max Flow}{}{}{}{}{}
+\Algorithm
+{Max Flow}
+{}
+{$\mathcal{O}(VE^2)$}
+{cpp}
+{source/EdmonsKarp.cpp}
+{sendol}
+
+{Min Cut Max Flow}
+{}
+{$\mathcal{O}(VE^2)$}
+{cpp}
+{source/EdmonsKarpMCMF.cpp}
+{sendol}
 
 \Algorithm
 {Strongly Connected Component}
@@ -101,21 +114,12 @@
 {source/HeavyLightDecomposition.cpp}
 {overnap}
 
-% \Algorithm
-% {Hopcroft-Karp Bipartite Matching}
-% {Use \texttt{add\_edge} to add edges, \texttt{match} to get matching, \texttt{getcover} to calculate vertex cover.}
-% {$\mathcal{O}(E \sqrt{V})$}
-% {cpp}{source/BipartiteMatching.cpp}
-% {koosaga}
-
-
-% \Algorithm
-% {General Matching}
-% {Use \texttt{init} to init, \texttt{addEdge} to add edges, \texttt{match} to get matching, \texttt{Match} to find maximum matching. Vertices have 1-based index.}
-% {$\mathcal{O}(VE)$}
-% {cpp}{source/GeneralMatching.cpp}
-% {hyea}
-
+\Algorithm
+{Bipartite Matching}
+{Run dfs for all left nodes. The count of return value true equal to count of max possible matches.}
+{$\mathcal{O}(EV)$}
+{cpp}{source/BipartiteMatching.cpp}
+{sendol}
 
 \section{Geometry}
 
@@ -234,9 +238,15 @@
 
 \Algorithm{Fermat's Little Theorem}{}{}{}{}{}
 
-\Algorithm{Modular Inverse in $\mathcal{O}(N)$}{}{}{}{}{}
+\Algorithm{Modular Inverse in $\mathcal{O}(log{MOD})$}{}{}{}{}{}
 
-\Algorithm{Extended Euclidean}{}{}{}{}{}
+\Algorithm
+{Extended Euclidean}
+{get a and b as arguments and return the solution (x, y) of equation ax + by = gcd(a, b).}
+{$\mathcal{O}(log{a} + log{b})$}
+{cpp}
+{source/ExtendedEuclidean.cpp}
+{sendol}
 
 \Algorithm{Miller-Rabin}{}{}{}{}{}
 
