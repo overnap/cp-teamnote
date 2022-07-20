@@ -9,7 +9,7 @@
 
 \usepackage{teamnote}
 
-\teamnote{KAIST}{HYEA}{hyea}
+\teamnote{Kyunghee University}{(교내)우승후보}{overnap}
 
 \ShowUsage
 \ShowComplexity
@@ -23,40 +23,256 @@
 % \pagebreak 
 
 
+\section{Data Structures For Range Query}
+
+\Algorithm
+{Segment Tree w/ Lazy Propagation}
+{\texttt{update(1, 0, n-1, l, r, v)}}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/LazyPropagation.cpp}
+{overnap}
+
+\Algorithm
+{Sparse Table}
+{RMQ l r: \texttt{min(lift[l][len], lift[r-(1<<len)+1][len])}}
+{$\mathcal{O}(N)-\mathcal{O}(1)$}
+{cpp}
+{source/SparseTable.cpp}
+{overnap}
+
+\Algorithm
+{Merge Sort Tree}
+{}
+{$\mathcal{O}(N\log{N})-\mathcal{O}(\log^2{N})$}
+{cpp}
+{source/MergeSortTree.cpp}
+{overnap}
+
+\Algorithm
+{Binray Search In Segment Tree}
+{}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/BinarySearchInSeg.cpp}
+{overnap}
+
+\Algorithm
+{Persistence Segment Tree}
+{}
+{$\mathcal{O}(\log^2{N})$}
+{cpp}
+{source/PersistenceSegmentTree.cpp}
+{overnap}
+
 \section{Graph}
 
-\Algorithm
-{Hopcroft-Karp Bipartite Matching}
-{Use \texttt{add\_edge} to add edges, \texttt{match} to get matching, \texttt{getcover} to calculate vertex cover.}
-{$\mathcal{O}(E \sqrt{V})$}
-{cpp}{source/BipartiteMatching.cpp}
-{koosaga}
-
+\Algorithm{Min Cut Max Flow}{}{}{}{}{}
 
 \Algorithm
-{General Matching}
-{Use \texttt{init} to init, \texttt{addEdge} to add edges, \texttt{match} to get matching, \texttt{Match} to find maximum matching. Vertices have 1-based index.}
-{$\mathcal{O}(VE)$}
-{cpp}{source/GeneralMatching.cpp}
-{hyea}
-
-\section{Data Structure}
+{Strongly Connected Component}
+{}
+{$\mathcal{O}(N)$}
+{cpp}
+{source/StronglyConnectedComponent.cpp}
+{overnap}
 
 \Algorithm
-{Randomized Meldable Heap}
-{Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
-{$\mathcal{O}(log n)$}
-{cpp}{source/MeldableHeap.cpp}
-{hyea}
+{Biconnected Component}
+{}
+{$\mathcal{O}(N)$}
+{cpp}
+{source/BiconnectedComponent.cpp}
+{overnap}
+
+\Algorithm
+{Lowest Common Ancestor}
+{Query with the sparse table}
+{$\mathcal{O}(N\log{N})-\mathcal{O}(\log{N})$}
+{cpp}
+{source/LowestCommonAncestor.cpp}
+{overnap}
+
+\Algorithm
+{Heavy-Light Decomposition}
+{Query with the ETT number and it's root node}
+{$\mathcal{O}(N)-\mathcal{O}(\log{N})$}
+{cpp}
+{source/HeavyLightDecomposition.cpp}
+{overnap}
+
+% \Algorithm
+% {Hopcroft-Karp Bipartite Matching}
+% {Use \texttt{add\_edge} to add edges, \texttt{match} to get matching, \texttt{getcover} to calculate vertex cover.}
+% {$\mathcal{O}(E \sqrt{V})$}
+% {cpp}{source/BipartiteMatching.cpp}
+% {koosaga}
+
+
+% \Algorithm
+% {General Matching}
+% {Use \texttt{init} to init, \texttt{addEdge} to add edges, \texttt{match} to get matching, \texttt{Match} to find maximum matching. Vertices have 1-based index.}
+% {$\mathcal{O}(VE)$}
+% {cpp}{source/GeneralMatching.cpp}
+% {hyea}
+
 
 \section{Geometry}
 
 \Algorithm
-{Smallest Enclosing Circle}
-{Use \texttt{solve} with \texttt{vector<Point>}. It returns \texttt{Circle c}, \texttt{c.p} is center, \texttt{c.r} is radius.}
-{$\mathcal{O}(n)$}
-{cpp}{source/SmallestEnclosingCircle.cpp}
-{hyea}
+{Counter Clockwise}
+{It returns $\{-1, 0, 1\}$ - the ccw of $b-a$ and $c-b$}
+{$\mathcal{O}(1)$}
+{cpp}
+{source/CounterClockwise.cpp}
+{overnap}
+
+\Algorithm
+{Line intersection}
+{Check the intersection of $(x_1, x_2)$ and $(y_1, y_2)$. It requires an additional condition when they are parallel}
+{$\mathcal{O}(1)$}
+{cpp}
+{source/LineIntersection.cpp}
+{overnap}
+
+\Algorithm
+{Graham Scan}
+{}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/GrahamScan.cpp}
+{overnap}
+
+\Algorithm
+{Monotone Chain}
+{Get the upper and lower hull of the convex hull}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/MonotoneChain.cpp}
+{overnap}
+
+\Algorithm
+{Rotating Calipers}
+{Get the maximum distance of the convex hull}
+{$\mathcal{O}(N)$}
+{cpp}
+{source/RotatingCalipers.cpp}
+{overnap}
+
+
+\section{Fast Fourier Transform}
+
+\Algorithm
+{Fast Fourier Transform}
+{FFT and multiply polynomials}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/FastFourierTransform.cpp}
+{overnap}
+
+\Algorithm
+{Number Theoretic Transform}
+{FFT with integer - to get better accuracy}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/NumberTheoreticTransform.cpp}
+{overnap}
+
+\Algorithm
+{Fast Walsh Hadamard Transform}
+{XOR convolution}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/FastWalshHadamardTransform.cpp}
+{overnap}
+
+
+\section{String}
+
+\Algorithm
+{Knuth-Moris-Pratt}
+{}
+{$\mathcal{O}(N)$}
+{cpp}
+{source/KnuthMorisPratt.cpp}
+{overnap}
+
+\Algorithm
+{Rabin-Karp}
+{The Rabin fingerprint for const-length hashing}
+{$\mathcal{O}(N)$}
+{cpp}
+{source/RabinKarp.cpp}
+{overnap}
+
+\Algorithm{Manacher}{}{}{}{}{}
+
+\Algorithm{Suffix Array and LCP Array}{}{}{}{}{}
+
+\Algorithm{Aho-Corasick}{}{}{}{}{}
+
+
+\section{Offline Query}
+
+\Algorithm{Mo's}{}{}{}{}{}
+
+\Algorithm{Parallel Binary Search}{}{}{}{}{}
+
+
+\section{DP Optimization}
+
+\Algorithm{Convex Hull Optimization w/ Stack}{}{}{}{}{}
+
+\Algorithm{Convex Hull Optimization w/ Li-Chao Tree}{}{}{}{}{}
+
+\Algorithm{Knuth Optimization}{}{}{}{}{}
+
+\Algorithm{Slope Trick}{}{}{}{}{}
+
+
+\section{Number Theory}
+
+\Algorithm{Fermat's Little Theorem}{}{}{}{}{}
+
+\Algorithm{Modular Inverse in $\mathcal{O}(N)$}{}{}{}{}{}
+
+\Algorithm{Extended Euclidean}{}{}{}{}{}
+
+\Algorithm{Miller-Rabin}{}{}{}{}{}
+
+\Algorithm{Chinese Remainder Theorem}{}{}{}{}{}
+
+\Algorithm{Pollard Rho}{}{}{}{}{}
+
+
+\section{ETC}
+
+\Algorithm{Catalan Number}{}{}{}{}{}
+
+\Algorithm{Ternery Search}{}{}{}{}{}
+
+\Algorithm{제출하기 전 생각해볼 것}{}{}{}{}{}
+
+\Algorithm{자주 쓰이는 문제 접근법}{}{}{}{}{}
+
+
+% \section{Data Structure}
+
+% \Algorithm
+% {Randomized Meldable Heap}
+% {Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
+% {$\mathcal{O}(log n)$}
+% {cpp}{source/MeldableHeap.cpp}
+% {hyea}
+
+% \section{Geometry}
+
+% \Algorithm
+% {Smallest Enclosing Circle}
+% {Use \texttt{solve} with \texttt{vector<Point>}. It returns \texttt{Circle c}, \texttt{c.p} is center, \texttt{c.r} is radius.}
+% {$\mathcal{O}(n)$}
+% {cpp}{source/SmallestEnclosingCircle.cpp}
+% {hyea}
 
 
 \end{document}
