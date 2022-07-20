@@ -1,59 +1,51 @@
-struct pst {
-	struct node {
-		int count;
-		array<int, 2> go;
-		node() {
-			count = 0;
-			fill(go.begin(), go.end(), -1);
-		}
-	};
-	vector<node> nodes;
-	vector<int> roots;
-	void init() {
-		nodes.emplace_back();
-		roots.push_back(0);
-		function<void (int, int)> dfs = [&] (int x, int depth) {
-			if (depth == 20)
-				return;
-			nodes[x].go[0] = nodes.size();
-			nodes.emplace_back();
-			dfs(nodes[x].go[0], depth+1);
-			nodes[x].go[1] = nodes.size();
-			nodes.emplace_back();
-			dfs(nodes[x].go[1], depth+1);
-		};
-		dfs(0, 0);
-	}
-	void insert(int x) {
-		roots.push_back(nodes.size());
-		nodes.emplace_back();
-		int curr = roots.back(), prev = roots[roots.size()-2];
-		for (int i=0; i<20; ++i) {
-			const int next = (x >> 19 - i) & 1;
-			nodes[curr].count = nodes[prev].count + 1;
-			nodes[curr].go[next] = nodes.size();
-			nodes.emplace_back();
-			nodes[curr].go[!next] = nodes[prev].go[!next];
-			curr = nodes[curr].go[next];
-			prev = nodes[prev].go[next];
-		}
-		nodes[curr].count = nodes[prev].count + 1;
-	}
-	void remove(int k) {
-		nodes.resize(roots[roots.size()-k]);
-		roots.resize(roots.size()-k);
-	}
-	int sum(int q, int x) {
-		int curr = roots[q], ret = 0;
-		for (int i=0; i<20; ++i) {
-			const int next = (x >> 19 - i) & 1;
-			if (next)
-				ret += nodes[nodes[curr].go[!next]].count;
-			curr = nodes[curr].go[next];
-			if (nodes[curr].count == 0)
-				break;
-		}
-		ret += nodes[curr].count;
-		return ret;
-	}
+int node_cnt,cp,n,m,cnt,root[MN+3];
+struct data{
+    int x,y;
+}point[M];
+struct pst{
+    int l,r,v;
 };
+vector <pst> tree(MN*30);
+inline bool cmp(const data a, const data b){
+    return a.y<b.y;
+}
+void mk_tree(){
+    int i;
+    root[0] = 1;
+    node_cnt = MN<<1;
+    for(i=1;i<MN;i++){
+        tree[i].l = i<<1;
+        tree[i].r = i<<1|1;
+    }
+}
+void update(int s, int e, int now, int idx){
+    tree[now].v++;
+    if(s!=e){
+        int m = (s+e)/2;
+        int L = tree[now].l, R = tree[now].r;
+        if(idx<=m){
+            tree[now].l = node_cnt;
+            tree[node_cnt++] = tree[L];
+            update(s,m,tree[now].l,idx);
+        }
+        else{
+            tree[now].r = node_cnt;
+            tree[node_cnt++] = tree[R];
+            update(m+1,e,tree[now].r, idx);
+        }
+    }
+}
+int fnd(int s, int e, int l, int r, int p_node, int n_node){
+    if(l<=s&&e<=r) return tree[n_node].v-tree[p_node].v;
+    if(r<s||l>e) return 0;
+    int m = s+e>>1;
+    int P = p_node, N = n_node;
+    return fnd(s,m,l,r,tree[P].l, tree[N].l)+fnd(m+1,e,l,r,tree[P].r, tree[N].r);
+}
+void Reset(){
+    int i;
+    for(i=1;i<=n;i++)
+        point[i].x = point[i].y = 0;
+    for(i=1;i<=MN;i++)
+        root[i] = tree[i].l = tree[i].r = tree[i].v = 0;
+}
