@@ -2,8 +2,7 @@ using ull = unsigned long long;
 ull modmul(ull a, ull b, ull n) {
     return ((unsigned __int128)a * b) % n;
 }
-// if __int128 isn't available
-ull modmul(ull a, ull b, ull n) {
+ull modmul(ull a, ull b, ull n) { // if __int128 isn't available
    if (b == 0)
        return 0;
    if (b == 1)
