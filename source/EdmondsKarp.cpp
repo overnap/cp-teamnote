@@ -1,40 +1,25 @@
-int getMaxFlow(vector<vector<int>>& adjList, int source, int sink) {
-    int nodeCnt = adjList.size();
-    vector<vector<int>> flow(nodeCnt, vector<int>(nodeCnt));
-    int ret = 0;
-    vector<vector<int>> adj(nodeCnt);
-    for (int i = 0; i < nodeCnt; i++) {
-        for (int j = 0; j < nodeCnt; j++) {
-            if (adjList[i][j] != 0) {
-                adj[i].push_back(j);
-                adj[j].push_back(i);
+while (true) {
+    vector<int> prev(n, -1);
+    queue<int> q;
+    q.push(0);
+    while (!q.empty() && prev[n-1] == -1) {
+        const int x = q.front();
+        q.pop();
+
+        for (int next : e[x]) {
+            if (cap[x][next] - flow[x][next] > 0 && prev[next] == -1) {
+                prev[next] = x;
+                q.push(next);
             }
         }
     }
-    while (true) { // bfs
-        vector<int> parents(nodeCnt, -1);
-        parents[source] = source;
-        queue<int> q;
-        q.push(source);
-        while (!q.empty() && parents[sink] == -1) {
-            int curNode = q.front();
-            q.pop();
-            for (int nextNode : adj[curNode]) {
-                if (adjList[curNode][nextNode] - flow[curNode][nextNode] > 0 && parents[nextNode] == -1) {
-                    parents[nextNode] = curNode;
-                    q.push(nextNode);
-                }
-            }
-        }
-        if (parents[sink] == -1) break;
-        int amount = INF;
-        for (int curNode = sink; curNode != source; curNode = parents[curNode])
-            amount = min(adjList[parents[curNode]][curNode] - flow[parents[curNode]][curNode], amount);
-        for (int curNode = sink; curNode != source; curNode = parents[curNode]) {
-            flow[parents[curNode]][curNode] += amount;
-            flow[curNode][parents[curNode]] -= amount;
-        }
-        ret += amount;
+    if (prev[n-1] == -1)
+        break;
+    int bot = 1e9+7;
+    for (int i=n-1; i!=0; i=prev[i])
+        bot = min(bot, cap[prev[i]][i] - flow[prev[i]][i]);
+    for (int i=n-1; i!=0; i=prev[i]) {
+        flow[prev[i]][i] += bot;
+        flow[i][prev[i]] -= bot;
     }
-    return ret;
 }

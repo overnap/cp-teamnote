@@ -81,15 +81,23 @@
 {$\mathcal{O}(VE^2)$}
 {cpp}
 {source/EdmondsKarp.cpp}
-{sendol}
+{overnap}
 
 \Algorithm
 {Min Cost Max Flow}
 {}
-{$\mathcal{O}(VE^2)$}
+{$\mathcal{O}(VEf)$}
 {cpp}
-{source/EdmondsKarpMCMF.cpp}
-{sendol}
+{source/MCMF.cpp}
+{corncheese}
+
+\Algorithm
+{Dinic's}
+{}
+{$\mathcal{O}(V^2E)$}
+{cpp}
+{source/Dinic.cpp}
+{corncheese}
 
 \Algorithm
 {Strongly Connected Component}
@@ -360,6 +368,13 @@
 {hyea}
 
 \Algorithm
+{Berlekamp-Massey}
+{\texttt{get\_nth(\{1, 1, 2, 3, 5\}, n)}}
+{}
+{cpp}{source/BerlekampMassey.cpp}
+{koosaga}
+
+\Algorithm
 {Splay Tree w/ Rotate}
 {}
 {}
@@ -445,6 +460,20 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 \item 경우 나누어 생각
 \item 해법에서 역순으로
 \item 딱 맞는 시간복잡도에 집착하지 말자
+\end{itemize}
+
+\begin{itemize}
+    \item $N \le 8 \rightarrow N!$
+    \item $10 \le N \le 20 \rightarrow 2^N$
+    \item $30 \le N \le 40 \rightarrow 2^{N/2}$
+    \item $N \le 50 \rightarrow N^4$
+    \item $400 \le N \le 500 \rightarrow N^3$
+    \item $N \le 1000 \rightarrow N^2, N^4 (\text{mitm})$
+    \item $N \le 3000 \rightarrow N^2$
+    \item $N \le 1e5 \rightarrow N\log{N}, N\log^2{N}$
+    \item $N \ge 1e6 \rightarrow \text{sqrt 금지}$
+    \item 문제에 의미있는 작은 상수 이용
+    \item 최후의 수단 버킷질, 상수 커팅
 \end{itemize}
 
 \end{document}
