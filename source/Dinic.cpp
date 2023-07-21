@@ -1,44 +1,41 @@
-int din_bfs(){ //level graph
-	fill(level,level+MN,-1);
-	level[S] = 0;
-	queue<int> Q;
-	Q.push(S);
-	while(!Q.empty()){
-		int cur = Q.front();
-		Q.pop();
-		for(int nxt: adj[cur]){
-			if(level[nxt]==-1&&cap[cur][nxt]-flow[cur][nxt]>0){
-				level[nxt] = level[cur]+1;
-				Q.push(nxt);
+while (true) {
+	vector<int> level(n * 2 + 2, -1);
+	queue<int> q;
+	level[st] = 0;
+	q.push(st);
+	while (!q.empty()) {
+		const int x = q.front();
+		q.pop();
+		for (int next : e[x]) {
+			if (level[next] == -1 && cap[x][next] - flow[x][next] > 0) {
+				level[next] = level[x] + 1;
+				q.push(next);
 			}
 		}
 	}
-	return level[E] != -1;
-}
-int din_dfs(int cur, int des, int fl){ //flow
-	if(cur==des) return fl;
-	for(int &i=work[cur];i<adj[cur].size();i++){
-		int nxt = adj[cur][i];
-		if(level[nxt]==level[cur]+1&&cap[cur][nxt]-flow[cur][nxt]>0){
-			int df = din_dfs(nxt, des, min(cap[cur][nxt]-flow[cur][nxt],fl));
-			if(df>0){
-				flow[cur][nxt] += df;
-				flow[nxt][cur] -= df;
-				return df;
+	if (level[dt] == -1)
+		break;
+	vector<int> vis(n * 2 + 1);
+	function<int(int, int)> dfs = [&](int x, int total) {
+		if (x == dt)
+			return total;
+		for (int &i = vis[x]; i < e[x].size(); ++i) {
+			const int next = e[x][i];
+			if (level[next] == level[x] + 1 && cap[x][next] - flow[x][next] > 0) {
+				const int res = dfs(next, min(total, cap[x][next] - flow[x][next]));
+				if (res > 0) {
+					flow[x][next] += res;
+					flow[next][x] -= res;
+					return res;
+				}
 			}
 		}
-	}	
-	return 0;
-}
-void dinic(){
-	int tot=0;
-	while(din_bfs()){
-		fill(work, work+MN, 0);
-		while(1){
-			int fl = din_dfs(S,E,INF);
-			if(!fl) break;
-			tot += fl;
-		}
+		return 0;
+	};
+	while (true) {
+		const int res = dfs(st, 1e9 + 7);
+		if (res == 0)
+			break;
+		ans += res;
 	}
-	ans = tot;
 }

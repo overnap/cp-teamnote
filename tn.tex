@@ -392,6 +392,14 @@
 \section{ETC}
 
 \Algorithm
+{Gaussian Elimination}
+{}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/GaussianElimination.cpp}
+{overnap}
+
+\Algorithm
 {Ternary Search}
 {}
 {$\mathcal{O}(\log{N})$}
@@ -503,7 +511,7 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 \item 특수 조건을 꼭 활용
 \item 여사건으로 생각하기
 \item Convexity 파악하고 최적화
-\item 게임이론
+\item 게임이론 - 거울 전략 혹은 DP 연계
 \item 경우 나누어 생각
 \item 해법에서 역순으로
 \item 딱 맞는 시간복잡도에 집착하지 말자
@@ -534,6 +542,15 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
     \item 식이 간단하거나 변수가 독립적이면 DP 테이블을 세그 위에 올려서 해결
     \item 모든 부분 집합에 대한 DP는 SOS
     \item 침착하게 점화식부터 세우고 Monge인지 판별
+\end{itemize}
+
+\Algorithm{Monge Array}{}{}{}{}{}
+\begin{itemize}
+    % ref: https://justicehui.github.io/hard-algorithm/2020/04/30/monge-array/
+    \item a <= b <= c <= d에서 A[a,c] + A[b,d] <= A[a,d] + A[b,c]
+    \item monge array의 행 n'개, 열 m' 개를 선택한 행렬도 monge array
+    \item monge array 두 개를 더해도 monge array
+    \item 각 행마다 최소인 원소 중 가장 왼쪽 원소의 위치는 단조 증가
 \end{itemize}
 
 \Algorithm

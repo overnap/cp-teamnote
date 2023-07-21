@@ -7,12 +7,13 @@ void mcmf(){
 		fill(dist, dist+MN, INF);
 		dist[S] = 0; inq[S] = 1;
 		Q.push(S);
-        while(!Q.empty()){
+		while(!Q.empty()){
 			int cur= Q.front();
 			Q.pop();
 			inq[cur] = 0;
 			for(int nxt: adj[cur]){
-				if(cap[cur][nxt]-flow[cur][nxt]>0&&dist[nxt]>dist[cur]+cst[cur][nxt]){
+				if(cap[cur][nxt] - flow[cur][nxt] > 0 &&
+						dist[nxt] > dist[cur]+cst[cur][nxt]){
 					dist[nxt] = dist[cur] + cst[cur][nxt];
 					prev[nxt] = cur;
 					if(!inq[nxt]){
