@@ -1,10 +1,8 @@
 struct splay_tree {
   struct node {
     node *l, *r, *p;
-    int cnt;
-    ll key, sum, lazy;
+    ll key, sum, lazy, cnt;
     bool inv;
-
     node(ll value) {
       l = r = p = nullptr;
       cnt = 1;
@@ -14,11 +12,9 @@ struct splay_tree {
       inv = false;
     }
   } *tree;
-
   void push(node *x) {
     x->key += x->lazy;
-    if (x->inv)
-      swap(x->l, x->r);
+    if (x->inv) swap(x->l, x->r);
     if (x->l) {
       x->l->lazy += x->lazy;
       x->l->sum += x->lazy * x->l->cnt;
@@ -32,12 +28,10 @@ struct splay_tree {
     x->lazy = 0;
     x->inv = false;
   }
-
   void rotate(node *x) {
     auto p = x->p;
     node *tmp;
-    push(p);
-    push(x);
+    push(p), push(x);
     if (x == p->l) {
       p->l = tmp = x->r;
       x->r = p;
@@ -47,23 +41,18 @@ struct splay_tree {
     }
     x->p = p->p;
     p->p = x;
-    if (tmp)
-      tmp->p = p;
+    if (tmp) tmp->p = p;
     (x->p ? (x->p->l == p ? x->p->l : x->p->r) : tree) = x;
-    update(p);
-    update(x);
+    update(p), update(x);
   }
-
   void splay(node *x) {
     while (x->p) {
       auto p = x->p;
       auto g = p->p;
-      if (g)
-        rotate((x == p->l) == (p == g->l) ? p : x);
+      if (g) rotate((x == p->l) == (p == g->l) ? p : x);
       rotate(x);
     }
   }
-
   void update(node *x) {
     x->cnt = 1;
     x->sum = x->key;
@@ -76,7 +65,6 @@ struct splay_tree {
       x->sum += x->r->sum;
     }
   }
-
   void init(int n) {
     node *x;
     tree = x = new node(0);
@@ -88,20 +76,17 @@ struct splay_tree {
       x->cnt = n - i;
     }
   }
-
   void add(int i, ll v) {
     find_kth(i);
     tree->sum += v;
     tree->key += v;
   }
-
   void add(int l, int r, ll v) {
     interval(l, r);
     auto x = tree->r->l;
     x->sum += v * x->cnt;
     x->lazy += v;
   }
-
   void interval(int l, int r) {
     find_kth(l - 1);
     auto x = tree;
@@ -112,29 +97,24 @@ struct splay_tree {
     tree->p = x;
     tree = x;
   }
-
   ll sum(int l, int r) {
     interval(l, r);
     return tree->r->l->sum;
   }
-
   void reverse(int l, int r) {
     interval(l, r);
     tree->r->l->inv ^= true;
   }
-
   void insert(ll key) {
     auto x = new node(key);
     if (!tree) {
       tree = x;
       return;
     }
-
     auto p = tree;
     node **t;
     while (true) {
-      if (key == p->key)
-        return;
+      if (key == p->key) return;
       if (key < p->key) {
         if (!p->l) {
           t = &p->l;
@@ -153,33 +133,25 @@ struct splay_tree {
     x->p = p;
     splay(x);
   }
-
   bool find(int key) {
-    if (!tree)
-      return false;
-
+    if (!tree) return false;
     auto p = tree;
     while (p) {
       push(p);
-      if (key == p->key)
-        break;
+      if (key == p->key) break;
       if (key < p->key) {
-        if (!p->l)
-          break;
+        if (!p->l) break;
         p = p->l;
       } else {
-        if (!p->r)
-          break;
+        if (!p->r) break;
         p = p->r;
       }
     }
     splay(p);
     return key == p->key;
   }
-
   void erase(ll key) {
-    if (!find(key))
-      return;
+    if (!find(key)) return;
     auto p = tree;
     if (p->l) {
       if (p->r) {
@@ -208,7 +180,6 @@ struct splay_tree {
     delete p;
     tree = nullptr;
   }
-
   void find_kth(int k) {
     auto x = tree;
     while (x) {
@@ -217,10 +188,8 @@ struct splay_tree {
         x = x->l;
         push(x);
       }
-      if (x->l)
-        k -= x->l->cnt;
-      if (!k--)
-        break;
+      if (x->l) k -= x->l->cnt;
+      if (!k--) break;
       x = x->r;
     }
     splay(x);

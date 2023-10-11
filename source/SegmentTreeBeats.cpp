@@ -8,7 +8,6 @@ struct seg {
 			tree[x*2].l += tree[x].l;
 			tree[x*2+1].l += tree[x].l;
 		}
-
 		tree[x].l = 0;
 	}
 	void init(int x, int s, int e, const vector<int> &a) {

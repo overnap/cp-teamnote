@@ -1,7 +1,5 @@
 using ull = unsigned long long;
-ull modmul(ull a, ull b, ull n) {
-    return ((unsigned __int128)a * b) % n;
-}
+ull modmul(ull a, ull b, ull n) { return ((unsigned __int128)a * b) % n; }
 ull modmul(ull a, ull b, ull n) { // if __int128 isn't available
    if (b == 0)
        return 0;
@@ -22,6 +20,4 @@ ull modpow(ull a, ull d, ull n) {
         r = modmul(r, a, n);
     return r;
 }
-ull gcd(ull a, ull b) {
-    return b ? gcd(b, a%b) : a;
-}
+ull gcd(ull a, ull b) { return b ? gcd(b, a%b) : a; }
