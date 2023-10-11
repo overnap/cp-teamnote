@@ -92,6 +92,14 @@
 {sendol}
 
 \Algorithm
+{Hopcroft-Karp \& Kőnig's}
+{Dinic's variant. Maximum Matching = Minimum Vertex Cover = S - Maximum Independence Set}
+{$\mathcal{O}(VE)$}
+{cpp}
+{source/HopcroftKarp.cpp}
+{overnap}
+
+\Algorithm
 {Max Flow}
 {}
 {$\mathcal{O}(VE^2)$}
@@ -318,16 +326,16 @@
 {Monotone Queue Optimization}
 {\texttt{dp[i] = min(dp[j] + c[j][i]), c is Monge, find cross}}
 {$\mathcal{O}(N\log{N})$}
-{}
-{}
+{cpp}
+{source/MonotoneQueue.cpp}
 {overnap}
 
 \Algorithm
 {Aliens Trick}
 {\texttt{dp[t][i] = min(dp[t-1][j] + c[j+1][i]), c is Monge, find lambda w/ half bs}}
 {$\mathcal{O}(N\log{N})$}
-{}
-{}
+{cpp}
+{source/Aliens.cpp}
 {overnap}
 
 \Algorithm
@@ -446,12 +454,11 @@
 {koosaga}
 
 \Algorithm
-{Splay Tree w/ Rotate}
+{Splay Tree w/ Lazy}
 {}
 {}
-{}
-{}
-{}
+{cpp}{source/SplayTree.cpp}
+{overnap}
 
 \Algorithm{Useful Stuff}{}{}{}{}{}
 
