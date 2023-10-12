@@ -27,7 +27,6 @@ void mcmf(){
 		int tmp = INF;
 		for(int i=E;i!=S;i=prev[i])
 			tmp = min(tmp, cap[prev[i]][i]-flow[prev[i]][i]);
-		
 		for(int i=E;i!=S;i=prev[i]){
 			ans += tmp * cst[prev[i]][i];
 			flow[prev[i]][i] += tmp;

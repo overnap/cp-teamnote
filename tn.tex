@@ -423,21 +423,21 @@
 {source/GaussianElimination.cpp}
 {overnap}
 
-\Algorithm
-{Ternary Search}
-{}
-{$\mathcal{O}(\log{N})$}
-{cpp}
-{source/TernarySearch.cpp}
-{overnap}
+% \Algorithm
+% {Ternary Search}
+% {}
+% {$\mathcal{O}(\log{N})$}
+% {cpp}
+% {source/TernarySearch.cpp}
+% {overnap}
 
-\Algorithm
-{Erasable Heap}
-{}
-{$\mathcal{O}(\log{N})$}
-{cpp}
-{source/ErasableHeap.cpp}
-{overnap}
+% \Algorithm
+% {Erasable Heap}
+% {}
+% {$\mathcal{O}(\log{N})$}
+% {cpp}
+% {source/ErasableHeap.cpp}
+% {overnap}
 
 \Algorithm
 {Randomized Meldable Heap}
@@ -533,9 +533,8 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 
 \Algorithm{DP 최적화 접근}{}{}{}{}{}
 \begin{itemize}
-    % ref: https://arnold518.tistory.com/120
-    \item 1사분면에 단조 감소하는 점들의 집합 P, 3사분면에 단조 감소하는 점들의 집합 Q에 대해, P의 점 하나와 Q의 점 하나를 이용하여 만들 수 있는 직사각형의 넓이는 Monge (ICPC WF Money For Nothing)
-    \item l..r의 값들을 sum이나 min은 Monge
+    \item C[i, j] = A[i] * B[j]이고 A, B가 단조증가, 단조감소이면 Monge
+    \item l..r의 값들의 sum이나 min은 Monge
 
     \item 식 정리해서 일차(CHT) 혹은 비슷한(MQ) 함수를 발견, 구현 힘들면 Li-Chao
     \item $a <= b <= c <= d$에서 $A[a,c] + A[b,d] <= A[a,d] + A[b,c]$
@@ -543,7 +542,6 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
     \item 식이 간단하거나 변수가 독립적이면 DP 테이블을 세그 위에 올려서 해결
     \item 침착하게 점화식부터 세우고 Monge인지 판별
     \item Monge에 집착하지 말고 단조성이나 볼록성만 보여도 됨
-    \item 못풀 것 같으면 버리자
 \end{itemize}
 
 \Algorithm
