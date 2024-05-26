@@ -35,3 +35,16 @@ vector<cd> mult(vector<cd> a, vector<cd> b) {
 	}
 	return ret;
 }
+vector<cd> div(vector<cd> &f, int sz) {
+  vector<cd> ret = {1 / f[0]};
+  for (int i=1; i<sz; i*=2) {
+    vector<cd> tmp(f.begin(), f.begin()+min((int)f.size(), i*2));
+    tmp = mult(ret, tmp);
+    tmp.resize(i * 2);
+    for (cd &x : tmp) x = -x;
+    tmp[0] += 2;
+    ret = mult(ret, tmp);
+    ret.resize(i * 2);
+  }
+  return ret;
+}

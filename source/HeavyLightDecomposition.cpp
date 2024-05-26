@@ -1,9 +1,9 @@
-vector<int> par(n), ett(n), root(n), depth(n), sz(n);
+vector<int> par(n), ett(n), rt(n), d(n), sz(n);
 function<void (int)> dfs1 = [&] (int x) {
     sz[x] = 1;
     for (int &next : e[x]) {
         if (next == par[x]) continue;
-        depth[next] = depth[x]+1;
+        d[next] = d[x]+1;
         par[next] = x;
         dfs1(next);
         sz[x] += sz[next];
@@ -16,7 +16,7 @@ function<void (int)> dfs2 = [&] (int x) {
     ett[x] = idx++;
     for (int next : e[x]) {
         if (next == par[x]) continue;
-        root[next] = next == e[x][0] ? root[x] : next;
+        rt[next] = next == e[x][0] ? rt[x] : next;
         dfs2(next);
     }
 };
