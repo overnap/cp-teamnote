@@ -99,13 +99,13 @@
 {source/HopcroftKarp.cpp}
 {overnap}
 
-\Algorithm
-{Max Flow}
-{}
-{$\mathcal{O}(VE^2)$}
-{cpp}
-{source/EdmondsKarp.cpp}
-{overnap}
+% \Algorithm
+% {Max Flow}
+% {}
+% {$\mathcal{O}(VE^2)$}
+% {cpp}
+% {source/EdmondsKarp.cpp}
+% {overnap}
 
 \Algorithm
 {Min Cost Max Flow}
@@ -492,6 +492,7 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 \begin{itemize}  % TODO: 점검
 \item Euler's phi $\phi (n)=n\prod _{p\mid n}\left(1-{\frac {1}{p}}\right)$
 \item Lucas' Theorem $\binom{m}{n}=\prod\binom{m_i}{n_i} \pmod p$ $m_i$, $n_i$는 $p^i$의 계수
+\item 스케줄링에서 데드라인이 빠른 걸 쓰는게 이득. 늦은 스케줄이 안들어갈 때 가장 시간 소모가 큰 스케줄 1개을 제거하면 이득.
 \end{itemize}
 
 \Algorithm
