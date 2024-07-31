@@ -3,7 +3,7 @@ for (int next : e[x]) {
     level[match[next]] = level[x] + 1;
     q.push(match[next]);
   }
-} // bfs loop
+} // bfs loop FIXME: 헷갈리니까 풀버전
 if (level.empty() || *max_element(level.begin(), level.end()) == -1)
   break;
 for (int next : e[x]) {
