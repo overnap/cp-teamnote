@@ -104,7 +104,7 @@
 % {overnap}
 
 \Algorithm
-{Link-Cut Tree}
+{Link/Cut Tree}
 {}
 {}
 {cpp}{source/LinkCutTree.cpp}
@@ -244,6 +244,15 @@
 {source/Bulldozer.cpp}
 {justicehui}
 
+\Algorithm
+{Point in Convex Polygon}
+{}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/PointInPolygon.cpp}
+{justicehui}
+
+
 \section{Fast Fourier Transform}
 
 \Algorithm
@@ -314,25 +323,6 @@
 {overnap}
 
 
-\section{Offline Query}
-
-\Algorithm
-{Mo's}
-{sort by $(L\sqrt{L}, R)$}
-{$\mathcal{O}(Q\log{Q}+N\sqrt{N})$}
-{cpp}
-{source/Mos.cpp}
-{overnap}
-
-\Algorithm
-{Parallel Binary Search}
-{}
-{$\mathcal{O}(N\log{N})$}
-{cpp}
-{source/ParallelBinarySearch.cpp}
-{overnap}
-
-
 \section{DP Optimization}
 
 \Algorithm
@@ -399,6 +389,7 @@
 {source/SumOverSubsets.cpp}
 {gina65}
 
+
 \section{Number Theory}
 
 \Algorithm
@@ -459,6 +450,22 @@
 {cpp}
 {source/GaussianElimination.cpp}
 {overnap}
+
+\Algorithm
+{Parallel Binary Search}
+{}
+{$\mathcal{O}(N\log{N})$}
+{cpp}
+{source/ParallelBinarySearch.cpp}
+{overnap}
+
+\Algorithm
+{Hilbert Order}
+{For Mo's}
+{}
+{cpp}
+{source/HilbertOrder.cpp}
+{gepardo}
 
 % \Algorithm
 % {Ternary Search}
@@ -543,7 +550,7 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 \item 해법에서 역순으로 가능한가?
 \item 딱 맞는 시간복잡도에 집착하지 말자
 \item 문제에 의미있는 작은 상수 이용
-\item 스몰투라지나 트라이 같은 트릭 생각
+\item 스몰투라지, 트라이, 해싱, 루트질 같은 트릭 생각
 \item 잘못된 방법으로 파고들지 말고 버리자
 \end{itemize}
 
