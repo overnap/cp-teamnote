@@ -23,7 +23,7 @@
 % \pagebreak 
 
 
-\section{Data Structures For Range Query}
+\section{Data Structures}
 
 % \Algorithm
 % {Segment Tree w/ Lazy Propagation}
@@ -80,6 +80,36 @@
 {cpp}
 {source/FenwickRMQ.cpp}
 {overnap}
+
+% \Algorithm
+% {Erasable Heap}
+% {}
+% {$\mathcal{O}(\log{N})$}
+% {cpp}
+% {source/ErasableHeap.cpp}
+% {overnap}
+
+\Algorithm
+{Randomized Meldable Heap}
+{Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
+{$\mathcal{O}(log n)$}
+{cpp}{source/MeldableHeap.cpp}
+{hyea}
+
+% \Algorithm
+% {Splay Tree w/ Lazy}
+% {}
+% {}
+% {cpp}{source/SplayTree.cpp}
+% {overnap}
+
+\Algorithm
+{Link-Cut Tree}
+{}
+{}
+{cpp}{source/LinkCutTree.cpp}
+{justicehui}
+
 
 \section{Graph \& Flow}
 
@@ -206,6 +236,13 @@
 {source/RotatingCalipers.cpp}
 {overnap}
 
+\Algorithm
+{Bulldozer Trick}
+{Traverse the entire sorting state of 2D points}
+{$\mathcal{O}(N^2\log{N})$}
+{cpp}
+{source/Bulldozer.cpp}
+{justicehui}
 
 \section{Fast Fourier Transform}
 
@@ -432,40 +469,11 @@
 % {overnap}
 
 % \Algorithm
-% {Erasable Heap}
-% {}
-% {$\mathcal{O}(\log{N})$}
-% {cpp}
-% {source/ErasableHeap.cpp}
-% {overnap}
-
-\Algorithm
-{Randomized Meldable Heap}
-{Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
-{$\mathcal{O}(log n)$}
-{cpp}{source/MeldableHeap.cpp}
-{hyea}
-
-% \Algorithm
 % {Berlekamp-Massey}
 % {\texttt{get\_nth(\{1, 1, 2, 3, 5\}, n)}}
 % {}
 % {cpp}{source/BerlekampMassey.cpp}
 % {koosaga}
-
-% \Algorithm
-% {Splay Tree w/ Lazy}
-% {}
-% {}
-% {cpp}{source/SplayTree.cpp}
-% {overnap}
-
-\Algorithm
-{Splay Tree - LCT}
-{}
-{}
-{cpp}{source/LinkCutTree.cpp}
-{justicehui}
 
 \Algorithm{Useful Stuff}{}{}{}{}{}
 
@@ -488,7 +496,6 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 격자점으로 구성된 simple polygon이 주어짐. I 는 polygon 내부의 격자점 수, B 는 polygon 선분 위 격자점 수, A는 polygon의 넓이라고 할 때, 다음과 같은 식이 성립한다. $A=I+B/2-1$
 \item 가장 가까운 두 점 : 분할정복으로 가까운 6개의 점만 확인
 \item 홀의 결혼 정리 : 이분그래프(L-R)에서, 모든 L을 매칭하는 필요충분 조건 = L에서 임의의 부분집합 S를 골랐을 때, 반드시 (S의 크기) $<=$ (S와 연결되어있는 모든 R의 크기)이다.
-\item 오일러 정리 : V - E + f(면)가 일정
 \item 소수 : 10 007 , 10 009 , 10 111 , 31 567 , 70 001 , 1 000 003 , 1 000 033 , 4 000 037 , 99 999 989 , 999 999 937 , 1 000 000 007 , 1 000 000 009 , 9 999 999 967 , 99 999 999 977
 \item 소수 개수 : (1e5 이하 : 9592), (1e7 이하 : 664 579) , (1e9 이하 : 50 847 534) 
 \item $10^{15}$ 이하의 정수 범위의 나눗셈 한번은 오차가 없다.
@@ -497,6 +504,7 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 \end{itemize}
 
 \begin{itemize}  % TODO: 점검
+\item Euler characteristic : v - e + f (면, 외부 포함) = 1 + c (컴포넌트)
 \item Euler's phi $\phi (n)=n\prod _{p\mid n}\left(1-{\frac {1}{p}}\right)$
 \item Lucas' Theorem $\binom{m}{n}=\prod\binom{m_i}{n_i} \pmod p$ $m_i$, $n_i$는 $p^i$의 계수
 \item 스케줄링에서 데드라인이 빠른 걸 쓰는게 이득. 늦은 스케줄이 안들어갈 때 가장 시간 소모가 큰 스케줄 1개를 제거하면 이득.

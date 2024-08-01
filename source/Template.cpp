@@ -31,5 +31,5 @@ using namespace __gnu_pbds;
 template <typename K, typename V, typename Comp = less<K>>
 using ordered_map =
     tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_update>;
-template <typename K, typename Comp = less<K>>
+template <typename K, typename Comp = less<K>> // less_equal for multiset
 using ordered_set = ordered_map<K, null_type, Comp>;
