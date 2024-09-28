@@ -68,7 +68,6 @@ vector<int> mod(vector<int> &&a, vector<int> b) {
   while (!a.empty() && a.back() == 0) a.pop_back();
   return a;
 }
-// kitamasa
 vector<int> res = {1}, xn = {0, 1};
 while (n) {
   if (n & 1) res = mod(mult(res, xn), c);

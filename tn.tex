@@ -9,7 +9,7 @@
 
 \usepackage{teamnote}
 
-\teamnote{UCPC 2024}{세상에 나쁜 알고리즘은 없다}{hamuim, overnap, pani}
+\teamnote{ICPC 2024}{WayInWilderness}{jwpassion1, overnap, penguin1234}
 
 \ShowUsage
 \ShowComplexity
@@ -41,13 +41,13 @@
 {source/SparseTable.cpp}
 {overnap}
 
-\Algorithm
-{Merge Sort Tree}
-{}
-{$\mathcal{O}(N\log{N})-\mathcal{O}(\log^2{N})$}
-{cpp}
-{source/MergeSortTree.cpp}
-{overnap}
+% \Algorithm
+% {Merge Sort Tree}
+% {}
+% {$\mathcal{O}(N\log{N})-\mathcal{O}(\log^2{N})$}
+% {cpp}
+% {source/MergeSortTree.cpp}
+% {overnap}
 
 % \Algorithm
 % {Binray Search In Segment Tree}
@@ -89,12 +89,12 @@
 % {source/ErasableHeap.cpp}
 % {overnap}
 
-\Algorithm
-{Randomized Meldable Heap}
-{Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
-{$\mathcal{O}(log n)$}
-{cpp}{source/MeldableHeap.cpp}
-{hyea}
+% \Algorithm
+% {Randomized Meldable Heap}
+% {Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
+% {$\mathcal{O}(log n)$}
+% {cpp}{source/MeldableHeap.cpp}
+% {hyea}
 
 % \Algorithm
 % {Splay Tree w/ Lazy}
@@ -169,21 +169,21 @@
 {source/BiconnectedComponent.cpp}
 {overnap}
 
-\Algorithm
-{Lowest Common Ancestor}
-{Query with the sparse table}
-{$\mathcal{O}(N\log{N})-\mathcal{O}(\log{N})$}
-{cpp}
-{source/LowestCommonAncestor.cpp}
-{overnap}
+% \Algorithm
+% {Lowest Common Ancestor}
+% {Query with the sparse table}
+% {$\mathcal{O}(N\log{N})-\mathcal{O}(\log{N})$}
+% {cpp}
+% {source/LowestCommonAncestor.cpp}
+% {overnap}
 
-\Algorithm
-{Heavy-Light Decomposition}
-{Query with the ETT number and it's root node}
-{$\mathcal{O}(N)-\mathcal{O}(\log{N})$}
-{cpp}
-{source/HeavyLightDecomposition.cpp}
-{overnap}
+% \Algorithm
+% {Heavy-Light Decomposition}
+% {Query with the ETT number and it's root node}
+% {$\mathcal{O}(N)-\mathcal{O}(\log{N})$}
+% {cpp}
+% {source/HeavyLightDecomposition.cpp}
+% {overnap}
 
 \Algorithm
 {Centroid Decomposition}
@@ -261,10 +261,10 @@
 {$\mathcal{O}(N\log{N})$}
 {cpp}
 {source/FastFourierTransform.cpp}
-{overnap}
+{DeobureoMinkyuParty}
 
 \Algorithm
-{Number Theoretic Transform}
+{Number Theoretic Transform and Kitamasa}
 {FFT with integer - to get better accuracy}
 {$\mathcal{O}(N\log{N})$}
 {cpp}
@@ -312,6 +312,14 @@
 {$\mathcal{O}(N\log{N})-\mathcal{O}(N)$}
 {cpp}
 {source/SuffixArrayLCPArray.cpp}
+{overnap}
+
+\Algorithm
+{Suffix Automaton}
+{Suffix link corresponds to suffix tree of rev(S)}
+{$\mathcal{O}(N)-\mathcal{O}(N)\text{ using hashmap or $\mathcal{O}(1)$ size array }$}
+{cpp}
+{source/SuffixAutomaton.cpp}
 {overnap}
 
 \Algorithm
@@ -417,6 +425,14 @@
 {sendol}
 
 \Algorithm
+{Floor Sum}
+{sum of $\lfloor(ax + b)/c\rfloor$ where $x \in [0, n]$}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/FloorSum.cpp}
+{overnap}
+
+\Algorithm
 {Miller-Rabin}
 {Fast prime test for big integers}
 {$\mathcal{O}(k\log{N})$}
@@ -486,35 +502,35 @@
 
 % ref: https://github.com/green5555/Teamnote-archive
 \begin{itemize}
-\item Catalan Number\\
-1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012,742900\\
-$C_n = binomial(n * 2, n) / (n + 1);$\\
-- 길이가 2n인 올바른 괄호 수식의 수\\
-- n + 1개의 리프를 가진 풀 바이너리 트리의 수\\
-- n + 2각형을 n개의 삼각형으로 나누는 방법의 수
-\item Burnside’s Lemma\\
-경우의 수를 세는데, 특정 transform operation(회전, 반사, ..) 해서 같은 경우들은 하나로 친다. 전체 경우의 수는? 각 operation마다 이 operation을 했을 때 변하지 않는 경우의 수를 센다 (단, “아무것도 하지 않는다” 라는 operation도 있어야 함!) 전체 경우의 수를 더한 후, operation의 수로 나눈다. (답이 맞다면 항상 나누어 떨어져야 한다)
-\item 알고리즘 게임\\
-- Nim Game의 해법 : 각 더미의 돌의 개수를 모두 XOR했을 때 0 이 아니면 첫번째, 0 이면 두번째 플레이어가 승리.\\
-- Grundy Number : 어떤 상황의 Grundy Number는, 가능한 다음 상황들의 Grundy Number를 모두 모은 다음, 그 집합에 포함 되지 않는 가장 작은 수가 현재 state의 Grundy Number가 된다. 만약 다음 state가 독립된 여러개의 state들로 나뉠 경우, 각각의 state의 Grundy Number의 XOR 합을 생각한다.\\
-- Subtraction Game : 한 번에 k 개까지의 돌만 가져갈 수 있는 경우, 각 더미의 돌의 개수를 k + 1로 나눈 나머지를 XOR 합하여 판단한다.\\
-- Index-k Nim : 한 번에 최대 k개의 더미를 골라 각각의 더미에서 아무렇게나 돌을 제거할 수 있을 때, 각 binary digit에 대하여 합을 k + 1로 나눈 나머지를 계산한다. 만약 이 나머지가 모든 digit에 대하여 0이라면 두번째, 하나라도 0이 아니라면 첫번째 플레이어가 승리.
-\item Pick’s Theorem\\
-격자점으로 구성된 simple polygon이 주어짐. I 는 polygon 내부의 격자점 수, B 는 polygon 선분 위 격자점 수, A는 polygon의 넓이라고 할 때, 다음과 같은 식이 성립한다. $A=I+B/2-1$
-\item 가장 가까운 두 점 : 분할정복으로 가까운 6개의 점만 확인
-\item 홀의 결혼 정리 : 이분그래프(L-R)에서, 모든 L을 매칭하는 필요충분 조건 = L에서 임의의 부분집합 S를 골랐을 때, 반드시 (S의 크기) $<=$ (S와 연결되어있는 모든 R의 크기)이다.
-\item 소수 : 10 007 , 10 009 , 10 111 , 31 567 , 70 001 , 1 000 003 , 1 000 033 , 4 000 037 , 99 999 989 , 999 999 937 , 1 000 000 007 , 1 000 000 009 , 9 999 999 967 , 99 999 999 977
-\item 소수 개수 : (1e5 이하 : 9592), (1e7 이하 : 664 579) , (1e9 이하 : 50 847 534) 
-\item $10^{15}$ 이하의 정수 범위의 나눗셈 한번은 오차가 없다.
-\item N의 약수의 개수 = $O(N^{1/3})$, N의 약수의 합 = $O(NloglogN)$
-\item $\phi(mn) = \phi(m) \phi(n) , \phi(pr^n) = pr^n - pr^{n-1} , a^{\phi(n)} \equiv 1 \pmod{n} \ \text{if coprime}$
+    \item Catalan Number\\
+          1, 1, 2, 5, 14, 42, 132, 429, 1430, 4862, 16796, 58786, 208012,742900\\
+          $C_n = binomial(n * 2, n) / (n + 1);$\\
+          - 길이가 2n인 올바른 괄호 수식의 수\\
+          - n + 1개의 리프를 가진 풀 바이너리 트리의 수\\
+          - n + 2각형을 n개의 삼각형으로 나누는 방법의 수
+    \item Burnside’s Lemma\\
+          경우의 수를 세는데, 특정 transform operation(회전, 반사, ..) 해서 같은 경우들은 하나로 친다. 전체 경우의 수는? 각 operation마다 이 operation을 했을 때 변하지 않는 경우의 수를 센다 (단, “아무것도 하지 않는다” 라는 operation도 있어야 함!) 전체 경우의 수를 더한 후, operation의 수로 나눈다. (답이 맞다면 항상 나누어 떨어져야 한다)
+    \item 알고리즘 게임\\
+          - Nim Game의 해법 : 각 더미의 돌의 개수를 모두 XOR했을 때 0 이 아니면 첫번째, 0 이면 두번째 플레이어가 승리.\\
+          - Grundy Number : 어떤 상황의 Grundy Number는, 가능한 다음 상황들의 Grundy Number를 모두 모은 다음, 그 집합에 포함 되지 않는 가장 작은 수가 현재 state의 Grundy Number가 된다. 만약 다음 state가 독립된 여러개의 state들로 나뉠 경우, 각각의 state의 Grundy Number의 XOR 합을 생각한다.\\
+          - Subtraction Game : 한 번에 k 개까지의 돌만 가져갈 수 있는 경우, 각 더미의 돌의 개수를 k + 1로 나눈 나머지를 XOR 합하여 판단한다.\\
+          - Index-k Nim : 한 번에 최대 k개의 더미를 골라 각각의 더미에서 아무렇게나 돌을 제거할 수 있을 때, 각 binary digit에 대하여 합을 k + 1로 나눈 나머지를 계산한다. 만약 이 나머지가 모든 digit에 대하여 0이라면 두번째, 하나라도 0이 아니라면 첫번째 플레이어가 승리.
+    \item Pick’s Theorem\\
+          격자점으로 구성된 simple polygon이 주어짐. I 는 polygon 내부의 격자점 수, B 는 polygon 선분 위 격자점 수, A는 polygon의 넓이라고 할 때, 다음과 같은 식이 성립한다. $A=I+B/2-1$
+    \item 가장 가까운 두 점 : 분할정복으로 가까운 6개의 점만 확인
+    \item 홀의 결혼 정리 : 이분그래프(L-R)에서, 모든 L을 매칭하는 필요충분 조건 = L에서 임의의 부분집합 S를 골랐을 때, 반드시 (S의 크기) $<=$ (S와 연결되어있는 모든 R의 크기)이다.
+    \item 소수 : 10 007 , 10 009 , 10 111 , 31 567 , 70 001 , 1 000 003 , 1 000 033 , 4 000 037 , 99 999 989 , 999 999 937 , 1 000 000 007 , 1 000 000 009 , 9 999 999 967 , 99 999 999 977
+    \item 소수 개수 : (1e5 이하 : 9592), (1e7 이하 : 664 579) , (1e9 이하 : 50 847 534)
+    \item $10^{15}$ 이하의 정수 범위의 나눗셈 한번은 오차가 없다.
+    \item N의 약수의 개수 = $O(N^{1/3})$, N의 약수의 합 = $O(NloglogN)$
+    \item $\phi(mn) = \phi(m) \phi(n) , \phi(pr^n) = pr^n - pr^{n-1} , a^{\phi(n)} \equiv 1 \pmod{n} \ \text{if coprime}$
 \end{itemize}
 
 \begin{itemize}  % TODO: 점검
-\item Euler characteristic : v - e + f (면, 외부 포함) = 1 + c (컴포넌트)
-\item Euler's phi $\phi (n)=n\prod _{p\mid n}\left(1-{\frac {1}{p}}\right)$
-\item Lucas' Theorem $\binom{m}{n}=\prod\binom{m_i}{n_i} \pmod p$ $m_i$, $n_i$는 $p^i$의 계수
-\item 스케줄링에서 데드라인이 빠른 걸 쓰는게 이득. 늦은 스케줄이 안들어갈 때 가장 시간 소모가 큰 스케줄 1개를 제거하면 이득.
+    \item Euler characteristic : v - e + f (면, 외부 포함) = 1 + c (컴포넌트)
+    \item Euler's phi $\phi (n)=n\prod _{p\mid n}\left(1-{\frac {1}{p}}\right)$
+    \item Lucas' Theorem $\binom{m}{n}=\prod\binom{m_i}{n_i} \pmod p$ $m_i$, $n_i$는 $p^i$의 계수
+    \item 스케줄링에서 데드라인이 빠른 걸 쓰는게 이득. 늦은 스케줄이 안들어갈 때 가장 시간 소모가 큰 스케줄 1개를 제거하면 이득.
 \end{itemize}
 
 \Algorithm
@@ -530,28 +546,28 @@ $C_n = binomial(n * 2, n) / (n + 1);$\\
 % ref: https://github.com/ntopia/icpc-teamnote/blob/master/teamnote.tex
 % ref: 알고리즘 문제 해결 전략
 \begin{itemize}
-\item 비슷한 문제를 풀어본 적이 있던가?
-\item 단순한 방법에서 시작할 수 있을까? (brute force)
-\item 내가 문제를 푸는 과정을 수식화할 수 있을까? (예제를 직접 해결해보면서)
-\item 문제를 단순화할 수 없을까?
-\item 그림으로 그려볼 수 있을까?
-\item 수식으로 표현할 수 있을까?
-\item 문제를 분해할 수 있을까?
-\item 뒤에서부터 생각해서 문제를 풀 수 있을까?
-\item 순서를 강제할 수 있을까?
-\item 특정 형태의 답만을 고려할 수 있을까? (정규화)
+    \item 비슷한 문제를 풀어본 적이 있던가?
+    \item 단순한 방법에서 시작할 수 있을까? (brute force)
+    \item 내가 문제를 푸는 과정을 수식화할 수 있을까? (예제를 직접 해결해보면서)
+    \item 문제를 단순화할 수 없을까?
+    \item 그림으로 그려볼 수 있을까?
+    \item 수식으로 표현할 수 있을까?
+    \item 문제를 분해할 수 있을까?
+    \item 뒤에서부터 생각해서 문제를 풀 수 있을까?
+    \item 순서를 강제할 수 있을까?
+    \item 특정 형태의 답만을 고려할 수 있을까? (정규화)
 \end{itemize}
 
 \begin{itemize}
-\item 특수 조건을 꼭 활용
-\item 여사건으로 생각하기
-\item 게임이론 - 거울 전략 혹은 DP 연계
-\item 겁먹지 말고 경우 나누어 생각
-\item 해법에서 역순으로 가능한가?
-\item 딱 맞는 시간복잡도에 집착하지 말자
-\item 문제에 의미있는 작은 상수 이용
-\item 스몰투라지, 트라이, 해싱, 루트질 같은 트릭 생각
-\item 잘못된 방법으로 파고들지 말고 버리자
+    \item 특수 조건을 꼭 활용
+    \item 여사건으로 생각하기
+    \item 게임이론 - 거울 전략 혹은 DP 연계
+    \item 겁먹지 말고 경우 나누어 생각
+    \item 해법에서 역순으로 가능한가?
+    \item 딱 맞는 시간복잡도에 집착하지 말자
+    \item 문제에 의미있는 작은 상수 이용
+    \item 스몰투라지, 트라이, 해싱, 루트질 같은 트릭 생각
+    \item 잘못된 방법으로 파고들지 말고 버리자
 \end{itemize}
 
 \Algorithm{DP 최적화 접근}{}{}{}{}{}

@@ -7,7 +7,7 @@ __builtin_clz(bits);      // left
 __builtin_ctz(bits);      // right
 // random number generator
 random_device rd;
-mt19937 mt(rd());
+mt19937 mt(rd()); // or use chrono
 uniform_int_distribution<> half(0, 1);
 cout << half(mt);
 // 128MB = int * 33,554,432
