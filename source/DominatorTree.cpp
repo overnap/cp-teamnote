@@ -28,9 +28,8 @@ vector<int> DominatorTree(const vector<vector<int>> &g, int src){ // // 0-based
     r[i] = p[i];
   }
   reverse(all(o)); idom[src] = src;
-  for(auto i : o){ // WARNING : if different, takes idom
+  for(auto i : o) // WARNING : if different, takes idom
     if(i != src) idom[i] = sdom[i] == sdom[u[i]] ? sdom[i] : idom[u[i]];
-  }
   for(auto i : o) if(i != src) idom[i] = o[idom[i]];
   return idom; // unreachable -> ret[i] = -1
 }
