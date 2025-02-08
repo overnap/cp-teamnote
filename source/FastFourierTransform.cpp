@@ -1,7 +1,9 @@
+#include <string>
+#pragma GCC optimize("O3")
+#pragma GCC target("avx,avx2,fma")
+#include <bits/stdc++.h>
 #include <immintrin.h>
 #include <smmintrin.h>
-#pragma GCC target("avx2")
-#pragma GCC target("fma")
 __m256d mult(__m256d a, __m256d b) {
   __m256d c = _mm256_movedup_pd(a);
   __m256d d = _mm256_shuffle_pd(a, a, 15);
