@@ -35,6 +35,6 @@ for (int i=0; i<n; ++i)
 for (int i=0, k=0; i<n; ++i) {
     if (inv[i] == 0)
         continue;
-    for (int j=sa[inv[i]-1]; s[i+k]==s[j+k]; ++k);
+    for (int j=sa[inv[i]-1]; max(i+j)+k<n&&s[i+k]==s[j+k]; ++k);
     lcp[inv[i]] = k ? k-- : 0;
 }
