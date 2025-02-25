@@ -33,9 +33,27 @@ using ordered_map =
     tree<K, V, Comp, rb_tree_tag, tree_order_statistics_node_update>;
 template <typename K, typename Comp = less<K>> // less_equal (MS)
 using ordered_set = ordered_map<K, null_type, Comp>;
-const int RANDOM =
-    chrono::high_resolution_clock::now().time_since_epoch().count();
-struct chash {int operator()(int x)const{return x^RANDOM;}};
-gp_hash_table<key, int, chash> table;
+gp_hash_table<key, int, custom_hash> table;
 regex re("^first.[0-9a-z]?*+{n}{n,m}");
 regex_match(s, re)
+// debug macros
+template <class T>
+ostream &operator<<(ostream &out, const vector<T> &v) {
+  for (const auto &x : v) cout << x << ' ';
+  return out;
+}
+#ifdef LOCAL
+#define debug(x) cout << "[Debug] " << #x << " = " << x << '\n'
+#else
+#define debug(x) void(0)
+#endif
+// CLion CMakeLists.txt
+cmake_minimum_required(VERSION 3.30)
+project(ps)
+set(CMAKE_CXX_STANDARD 20)
+include_directories(.)
+MATH(EXPR stack_size "1024 * 1024 * 1024")
+set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra -Wall")
+set(CMAKE_EXE_LINKER_FLAGS "-Wl,--stack,${stack_size}")
+add_definitions(-DLOCAL)
+add_executable(ps main.cpp)
