@@ -24,21 +24,21 @@
 \newcommand{\authorname}{Some Members}
 
 \newcommand{\maketitlepage}{\maketitle
-	
-\tableofcontents
 
-\thispagestyle{fancy}
+    \tableofcontents
+
+    \thispagestyle{fancy}
 
 }
 \DeclareRobustCommand{\teamnote}[3]{
-	\renewcommand{\schoolname}{#1}
+    \renewcommand{\schoolname}{#1}
     \renewcommand{\teamname}{#2}
     \renewcommand{\authorname}{#3}
 }
 \pagestyle{fancy}
 \lhead{\schoolname{} -- \teamname}
 \rhead{Page \thepage{} of
-\ifthenelse{\pageref{LastPage} < 26}{\pageref{LastPage}}{\textcolor{red}{\textbf{\pageref{LastPage}}}}}
+    \ifthenelse{\pageref{LastPage} < 26}{\pageref{LastPage}}{\textcolor{red}{\textbf{\pageref{LastPage}}}}}
 \fancyfoot{}
 
 \title{Team Note of \teamname}
@@ -49,31 +49,31 @@
 
 
 \newboolean{BangShowUsage}
-\setboolean{BangShowUsage}{false} 
+\setboolean{BangShowUsage}{false}
 \newcommand{\ShowUsage}{\setboolean{BangShowUsage}{false}}
 \newcommand{\HideUsage}{\setboolean{BangShowUsage}{true}}
 
 
 \newboolean{BangShowComplexity}
-\setboolean{BangShowComplexity}{false} 
+\setboolean{BangShowComplexity}{false}
 \newcommand{\ShowComplexity}{\setboolean{BangShowComplexity}{false}}
 \newcommand{\HideComplexity}{\setboolean{BangShowComplexity}{true}}
 
 
 \newboolean{BangShowAuthor}
-\setboolean{BangShowAuthor}{false} 
+\setboolean{BangShowAuthor}{false}
 \newcommand{\ShowAuthor}{\setboolean{BangShowAuthor}{false}}
 \newcommand{\HideAuthor}{\setboolean{BangShowAuthor}{true}}
 
 \newcommand{\Algorithm}[6]{
-	\subsection{#1}
-	
-	\ifthenelse{\equal{#2}{} \OR \boolean{BangShowUsage}}{}{\textbf{Usage:} #2}
-	
-	\ifthenelse{\equal{#3}{} \OR \boolean{BangShowComplexity}}{}{\textbf{Time Complexity:} #3}
-	
-	\ifthenelse{\equal{#6}{} \OR \boolean{BangShowAuthor}}{}{\textbf{Author:} #6}
-	
-	\ifthenelse{\equal{#5}{}}{}{\ifthenelse{\equal{#4}{}}{\inputminted[]{cpp}{#5}}{\inputminted[]{#4}{#5}}}
+    \subsection{#1}
+
+    \ifthenelse{\equal{#2}{} \OR \boolean{BangShowUsage}}{}{\textbf{Usage:} #2}
+
+    \ifthenelse{\equal{#3}{} \OR \boolean{BangShowComplexity}}{}{\textbf{Time Complexity:} #3}
+
+    \ifthenelse{\equal{#6}{} \OR \boolean{BangShowAuthor}}{}{\textbf{Author:} #6}
+
+    \ifthenelse{\equal{#5}{}}{}{\ifthenelse{\equal{#4}{}}{\inputminted[]{cpp}{#5}}{\inputminted[]{#4}{#5}}}
 }
 

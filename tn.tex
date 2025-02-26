@@ -9,6 +9,9 @@
 
 \usepackage{teamnote}
 
+\usepackage{fontspec}
+\setmonofont[Scale=0.9]{JetBrains Mono}
+
 \teamnote{ICPC 2024}{WayInWilderness}{jwpassion1, overnap, penguin1234}
 
 \ShowUsage
@@ -73,28 +76,13 @@
 % {source/SegmentTreeBeats.cpp}
 % {overnap}
 
-% \Algorithm
-% {Fenwick RMQ}
-% {}
-% {Fast $\mathcal{O}(\log{N})$}
-% {cpp}
-% {source/FenwickRMQ.cpp}
-% {overnap}
-
-% \Algorithm
-% {Erasable Heap}
-% {}
-% {$\mathcal{O}(\log{N})$}
-% {cpp}
-% {source/ErasableHeap.cpp}
-% {overnap}
-
-% \Algorithm
-% {Randomized Meldable Heap}
-% {Min-heap \texttt{H} is declared as \texttt{Heap<T> H}. You can use \texttt{push}, \texttt{size}, \texttt{empty}, \texttt{top}, \texttt{pop} as \texttt{std::priority\_queue}. Use \texttt{H.meld(G)} to meld contents from \texttt{G} to \texttt{H}. }
-% {$\mathcal{O}(log n)$}
-% {cpp}{source/MeldableHeap.cpp}
-% {hyea}
+\Algorithm
+{Fenwick RMQ}
+{}
+{Fast $\mathcal{O}(\log{N})$}
+{cpp}
+{source/FenwickRMQ.cpp}
+{overnap}
 
 % \Algorithm
 % {Splay Tree w/ Lazy}
@@ -145,13 +133,13 @@
 % {source/MCMF.cpp}
 % {corncheese}
 
-% \Algorithm
-% {Dinic's}
-% {}
-% {$\mathcal{O}(V^2E)$, $\mathcal{O}(\min{(V^{2/3}E,E^{3/2})})$ on unit capacity}
-% {cpp}
-% {source/Dinic.cpp}
-% {overnap}
+\Algorithm
+{Dinic's}
+{}
+{$\mathcal{O}(V^2E)$, $\mathcal{O}(\min{(V^{2/3}E,E^{3/2})})$ on unit capacity}
+{cpp}
+{source/Dinic.cpp}
+{overnap}
 
 \Algorithm
 {Dominator Tree}
@@ -185,13 +173,13 @@
 % {source/LowestCommonAncestor.cpp}
 % {overnap}
 
-% \Algorithm
-% {Heavy-Light Decomposition}
-% {Query with the ETT number and it's root node}
-% {$\mathcal{O}(N)-\mathcal{O}(\log{N})$}
-% {cpp}
-% {source/HeavyLightDecomposition.cpp}
-% {overnap}
+\Algorithm
+{Heavy-Light Decomposition}
+{Query with the ETT number and it's root node}
+{$\mathcal{O}(N)-\mathcal{O}(\log{N})$}
+{cpp}
+{source/HeavyLightDecomposition.cpp}
+{overnap}
 
 \Algorithm
 {Centroid Decomposition}
@@ -576,13 +564,17 @@
 \begin{itemize}
     \item 특수 조건을 꼭 활용
     \item 여사건으로 생각하기
-    \item 게임이론 - 거울 전략 혹은 DP 연계
+    \item 게임이론 - 거울 전략 혹은 mex DP 연계
     \item 겁먹지 말고 경우 나누어 생각
     \item 해법에서 역순으로 가능한가?
     \item 딱 맞는 시간복잡도에 집착하지 말자
     \item 문제에 의미있는 작은 상수 이용
     \item 스몰투라지, 트라이, 해싱, 루트질 같은 트릭 생각
+    \item 너무 추상화하기보단 풀려야 하는 방식으로 생각하기
     \item 잘못된 방법으로 파고들지 말고 버리자
+    \item 제발 터널 비전에 빠지지 말자
+    \item 헬프 콜은 적극적으로
+    \item 혼자 멘탈 나가지 않기
 \end{itemize}
 
 \Algorithm{DP 최적화 접근}{}{}{}{}{}
@@ -612,5 +604,10 @@
 {cpp}
 {source/BitsetAddSub.cpp}
 {cgiosy}
+
+{
+    \fontsize{24}{1}\selectfont \vspace{8.5cm}
+    Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness and rivers in the desert.
+}
 
 \end{document}
