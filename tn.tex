@@ -145,13 +145,13 @@
 % {source/MCMF.cpp}
 % {corncheese}
 
-\Algorithm
-{Dinic's}
-{}
-{$\mathcal{O}(V^2E)$, $\mathcal{O}(\min{(V^{2/3}E,E^{3/2})})$ on unit capacity}
-{cpp}
-{source/Dinic.cpp}
-{overnap}
+% \Algorithm
+% {Dinic's}
+% {}
+% {$\mathcal{O}(V^2E)$, $\mathcal{O}(\min{(V^{2/3}E,E^{3/2})})$ on unit capacity}
+% {cpp}
+% {source/Dinic.cpp}
+% {overnap}
 
 \Algorithm
 {Dominator Tree}
@@ -205,44 +205,28 @@
 \section{Geometry}
 
 \Algorithm
-{Counter Clockwise}
-{It returns $\{-1, 0, 1\}$ - the ccw of $b-a$ and $c-b$}
-{$\mathcal{O}(1)$}
-{cpp}
-{source/CounterClockwise.cpp}
-{overnap}
-
-\Algorithm
 {Line intersection}
 {Check the intersection of $(x_1, x_2)$ and $(y_1, y_2)$. It requires an additional condition when they are parallel}
 {$\mathcal{O}(1)$}
 {cpp}
-{source/LineIntersection.cpp}
-{overnap}
+{source/penguin/LineInter.cpp}
+{penguin}
 
 \Algorithm
 {Graham Scan}
 {}
 {$\mathcal{O}(N\log{N})$}
 {cpp}
-{source/GrahamScan.cpp}
-{overnap}
-
-\Algorithm
-{Monotone Chain}
-{Get the upper and lower hull of the convex hull}
-{$\mathcal{O}(N\log{N})$}
-{cpp}
-{source/MonotoneChain.cpp}
-{overnap}
+{source/penguin/ConvexHull.cpp}
+{penguin}
 
 \Algorithm
 {Rotating Calipers}
 {Get the maximum distance of the convex hull}
 {$\mathcal{O}(N)$}
 {cpp}
-{source/RotatingCalipers.cpp}
-{overnap}
+{source/penguin/RotatingCalipers.cpp}
+{penguin}
 
 \Algorithm
 {Bulldozer Trick}
@@ -257,8 +241,16 @@
 {}
 {$\mathcal{O}(\log{N})$}
 {cpp}
-{source/PointInPolygon.cpp}
-{justicehui}
+{source/penguin/PointInHull.cpp}
+{penguin}
+
+\Algorithm
+{Line Hull Intersection}
+{}
+{$\mathcal{O}(\log{N})$}
+{cpp}
+{source/penguin/LineHullInter.cpp}
+{penguin}
 
 
 \section{Fast Fourier Transform}
@@ -622,7 +614,3 @@
 {cgiosy}
 
 \end{document}
-
-
-
-
