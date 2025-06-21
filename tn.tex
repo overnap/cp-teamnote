@@ -9,8 +9,8 @@
 
 \usepackage{teamnote}
 
-\usepackage{fontspec}
-\setmonofont[Scale=0.9]{JetBrains Mono}
+% \usepackage{fontspec}
+% \setmonofont[Scale=0.9]{JetBrains Mono}
 
 \teamnote{ICPC 2024}{WayInWilderness}{jwpassion1, overnap, penguin1234}
 
@@ -463,11 +463,19 @@
 \section{ETC}
 
 \Algorithm
-{Gaussian Elimination}
+{Gaussian Elimination on $\mathbb{Z}^n_2$}
 {}
-{$\mathcal{O}(\log{N})$}
+{$\mathcal{O}(Nd^2/64)$}
 {cpp}
 {source/GaussianElimination.cpp}
+{overnap}
+
+\Algorithm
+{Gaussian Elimination on $\mathbb{Z}^n_p$}
+{Kirchhoff's, LGV, etc.}
+{$\mathcal{O}(N^3)$}
+{cpp}
+{source/Determinant.cpp}
 {overnap}
 
 % \Algorithm
@@ -604,10 +612,5 @@
 {cpp}
 {source/BitsetAddSub.cpp}
 {cgiosy}
-
-{
-    \fontsize{24}{1}\selectfont \vspace{8.5cm}
-    Behold, I will do a new thing; now it shall spring forth; shall ye not know it? I will even make a way in the wilderness and rivers in the desert.
-}
 
 \end{document}

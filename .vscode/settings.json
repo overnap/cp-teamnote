@@ -35,6 +35,7 @@
         "-interaction=nonstopmode",
         "-file-line-error",
         "-xelatex",
+        "-shell-escape",
         "-outdir=%OUTDIR%",
         "%DOC%"
       ],
@@ -43,7 +44,9 @@
     {
       "name": "latexmk_rconly",
       "command": "latexmk",
-      "args": ["%DOC%"],
+      "args": [
+        "%DOC%"
+      ],
       "env": {}
     },
     {
@@ -61,7 +64,9 @@
     {
       "name": "bibtex",
       "command": "bibtex",
-      "args": ["%DOCFILE%"],
+      "args": [
+        "%DOCFILE%"
+      ],
       "env": {}
     },
     {
@@ -76,7 +81,10 @@
     {
       "name": "jnw2tex",
       "command": "julia",
-      "args": ["-e", "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"],
+      "args": [
+        "-e",
+        "using Weave; weave(\"%DOC_EXT%\", doctype=\"tex\")"
+      ],
       "env": {}
     },
     {
@@ -91,8 +99,75 @@
     {
       "name": "tectonic",
       "command": "tectonic",
-      "args": ["--synctex", "--keep-logs", "%DOC%.tex"],
+      "args": [
+        "--synctex",
+        "--keep-logs",
+        "%DOC%.tex"
+      ],
       "env": {}
+    }
+  ],
+  "latex-workshop.latex.recipe.default": "lastUsed",
+  "latex-workshop.latex.recipes": [
+    {
+      "name": "latexmk",
+      "tools": [
+        "latexmk"
+      ]
+    },
+    {
+      "name": "latexmk (latexmkrc)",
+      "tools": [
+        "latexmk_rconly"
+      ]
+    },
+    {
+      "name": "latexmk (lualatex)",
+      "tools": [
+        "lualatexmk"
+      ]
+    },
+    {
+      "name": "latexmk (xelatex)",
+      "tools": [
+        "xelatexmk"
+      ]
+    },
+    {
+      "name": "pdflatex -> bibtex -> pdflatex * 2",
+      "tools": [
+        "pdflatex",
+        "bibtex",
+        "pdflatex",
+        "pdflatex"
+      ]
+    },
+    {
+      "name": "Compile Rnw files",
+      "tools": [
+        "rnw2tex",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "Compile Jnw files",
+      "tools": [
+        "jnw2tex",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "Compile Pnw files",
+      "tools": [
+        "pnw2tex",
+        "latexmk"
+      ]
+    },
+    {
+      "name": "tectonic",
+      "tools": [
+        "tectonic"
+      ]
     }
   ]
 }
