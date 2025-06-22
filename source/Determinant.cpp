@@ -15,7 +15,7 @@ int det(vector<vector<int>> a, const int mod) {
     for (int k = j; k < n; ++k)
       a[j][k] = 1LL * a[j][k] * inv % mod;
     for (int i = j + 1; i < n; ++i) {
-      for (int k = j; k < n; ++k)
+      for (int k = n - 1; k >= 0; --k)
         a[i][k] = (a[i][k] - 1LL * a[i][j] * a[j][k] % mod + mod) % mod;
     }
   }
