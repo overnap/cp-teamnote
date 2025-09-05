@@ -37,15 +37,39 @@ gp_hash_table<key, int, custom_hash> table;
 regex re("^first.[0-9a-z]?*+{n}{n,m}");
 regex_match(s, re)
 // debug macros
-template <class T>
-ostream &operator<<(ostream &out, const vector<T> &v) {
-  for (const auto &x : v) cout << x << ' ';
+template <class T, class U>
+ostream &operator<<(ostream &out, const pair<T, U> &v) {
+  out << "(" << v.first << ',' << v.second << ")";
   return out;
 }
-#ifdef LOCAL
+template <class... Ts>
+ostream &operator<<(ostream &out, const tuple<Ts...> &v) {
+  out << "(";
+  [&]<size_t... Is>(index_sequence<Is...>) {
+    ((out << (Is == 0 ? "" : ",") << get<Is>(v)), ...);
+  }(index_sequence_for<Ts...>{});
+  out << ")";
+  return out;
+}
+template <ranges::range T>
+  requires(!is_convertible_v<T, std::string>)
+ostream &operator<<(ostream &out, const T &v) {
+  out << '[';
+  bool first = true;
+  for (const auto &x : v) {
+    if (!first) out << ", ";
+    out << x;
+    first = false;
+  }
+  out << ']';
+  return out;
+}
+#ifndef ONLINE_JUDGE
 #define debug(x) cout << "[Debug] " << #x << " = " << x << '\n'
+#define dout cout
 #else
 #define debug(x) void(0)
+#define dout if (false) cout
 #endif
 // CLion CMakeLists.txt
 cmake_minimum_required(VERSION 3.30)
