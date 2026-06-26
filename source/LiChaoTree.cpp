@@ -5,16 +5,14 @@ struct lin {
 };
 struct lichao {
 	struct node {
-		int l, r;
-		lin line;
+		int l, r; lin line;
 	};
 	vector<node> tree;
 	void init() { tree.push_back({-1, -1, { 0, -INF }}); }
 	void update(ll s, ll e, int n, const lin &line) {
 		lin hi = tree[n].line;
 		lin lo = line;
-		if (hi.f(s) < lo.f(s))
-			swap(lo, hi);
+		if (hi.f(s) < lo.f(s)) swap(lo, hi);
 		if (hi.f(e) >= lo.f(e)) {
 			tree[n].line = hi;
 			return;
@@ -37,12 +35,9 @@ struct lichao {
 		}
 	}
 	ll query(ll s, ll e, int n, ll x) {
-		if (n == -1)
-			return -INF;
+		if (n == -1) return -INF;
 		const ll m = s + e >> 1;
-		if (x <= m)
-			return max(tree[n].line.f(x), query(s, m, tree[n].l, x));
-		else
-			return max(tree[n].line.f(x), query(m+1, e, tree[n].r, x));
+		if (x <= m) return max(tree[n].line.f(x), query(s, m, tree[n].l, x));
+		else return max(tree[n].line.f(x), query(m+1, e, tree[n].r, x));
 	}
 };

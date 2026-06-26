@@ -29,10 +29,8 @@ struct dsparse {
     go(level - 1, 0, n - 1);
   }
   pair<T, T> query(int l, int r) {
-    if (l > r)
-      return {E, E};
-    if (l == r)
-      return {table[0][l], E};
+    if (l > r) return {E, E};
+    if (l == r) return {table[0][l], E};
     const int t = 31 - __builtin_clz(l ^ r);
     return {table[t][l], table[t][r]};
   }

@@ -6,11 +6,12 @@
 \usepackage{amssymb}
 \usepackage{amsmath}
 \usepackage{import}
+\usepackage{ifthen}
 
 \usepackage{teamnote}
 
-% \usepackage{fontspec}
-% \setmonofont[Scale=0.9]{JetBrains Mono}
+\usepackage{fontspec}
+\setmonofont[Scale=0.9]{JetBrains Mono}
 
 \teamnote{UCPC 2026}{팀명고민하기귀찮음}{닉네임(jwpassion1), 정하기(yyyy7089), 귀찮음(overnap)}
 
@@ -36,13 +37,13 @@
 % {source/LazyPropagation.cpp}
 % {overnap}
 
-\Algorithm
-{Sparse Table}
-{RMQ l r: \texttt{min(lift[l][len], lift[r-(1<<len)+1][len])}}
-{$\mathcal{O}(N\log N)-\mathcal{O}(1)$}
-{cpp}
-{source/SparseTable.cpp}
-{overnap}
+% \Algorithm
+% {Sparse Table}
+% {RMQ l r: \texttt{min(lift[l][len], lift[r-(1<<len)+1][len])}}
+% {$\mathcal{O}(N\log N)-\mathcal{O}(1)$}
+% {cpp}
+% {source/SparseTable.cpp}
+% {overnap}
 
 \Algorithm
 {Disjoint Sparse Table}
@@ -76,13 +77,13 @@
 {source/PersistenceSegmentTree.cpp}
 {overnap}
 
-% \Algorithm
-% {Segment Tree Beats}
-% {Note the potential function}
-% {$\mathcal{O}(\log^2{N})$}
-% {cpp}
-% {source/SegmentTreeBeats.cpp}
-% {overnap}
+\Algorithm
+{Segment Tree Beats}
+{Note the potential function}
+{$\mathcal{O}(\log^2{N})$}
+{cpp}
+{source/SegmentTreeBeats.cpp}
+{overnap}
 
 \Algorithm
 {Fenwick RMQ}
@@ -376,13 +377,13 @@
 {source/KnuthOptimization.cpp}
 {overnap}
 
-\Algorithm
-{Slope Trick}
-{Use priority queue, convex condition}
-{$\mathcal{O}(N\log{N})$}
-{cpp}
-{source/SlopeTrick.cpp}
-{overnap}
+% \Algorithm
+% {Slope Trick}
+% {Use priority queue, convex condition}
+% {$\mathcal{O}(N\log{N})$}
+% {cpp}
+% {source/SlopeTrick.cpp}
+% {overnap}
 
 \Algorithm
 {Sum Over Subsets}
@@ -579,10 +580,6 @@
     \item 문제에 의미있는 작은 상수 이용
     \item 스몰투라지, 트라이, 해싱, 루트질 같은 트릭 생각
     \item 너무 추상화하기보단 풀려야 하는 방식으로 생각하기
-    \item 잘못된 방법으로 파고들지 말고 버리자
-    \item 제발 터널 비전에 빠지지 말자
-    \item 헬프 콜은 적극적으로
-    \item 혼자 멘탈 나가지 않기
 \end{itemize}
 
 \Algorithm{DP 최적화 접근}{}{}{}{}{}
