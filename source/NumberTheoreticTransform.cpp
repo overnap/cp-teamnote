@@ -1,4 +1,5 @@
 // w is the root of mod e.g. 3/998244353 and 5/1012924417
+// You can easily implement a standard FFT with w = ie^2pi/n
 void ntt(vector<ll> &f, const ll w, const ll mod) {
 	const int n = f.size();
 	if (n == 1)

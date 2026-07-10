@@ -1,4 +1,4 @@
-#include <string>
+#include <string> // very fast version a.k.a Hell-Joseon FFT 
 #pragma GCC optimize("O3")
 #pragma GCC target("avx,avx2,fma")
 #include <bits/stdc++.h>

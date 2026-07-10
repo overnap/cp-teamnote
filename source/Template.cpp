@@ -81,3 +81,5 @@ set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} -Wextra -Wall -fsanitize=address -fsanit
 set(CMAKE_EXE_LINKER_FLAGS "-Wl,--stack,${stack_size}")
 add_definitions(-DLOCAL)
 add_executable(ps main.cpp)
+// If you are in a Unix env, it is easy to find erros with
+-fsanitize=address -fsanitize=undefined
